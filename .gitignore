@@ -1,0 +1,40 @@
+# ===== 不上传：游戏客户端 =====
+/World of Warcraft/
+
+# ===== 不上传：超大/运行时数据 =====
+/server/acore/client-data/
+/server/downloads/
+/server/mysql-data/
+/server/mariadb-data/
+/server/mariadb/
+
+# ===== acore-docker 嵌套仓库的本地备份（原 .git 重命名而来）=====
+/server/acore-docker/.git-local-backup/
+
+# ===== 源目录中指向已排除内容的符号链接 =====
+/server/acore/run/data/
+/server/acore/run/sql/
+
+# ===== 单文件超过 100MB，GitHub 拒收 =====
+/server/acore/run/bin/worldserver
+/server/acore/world-dist/bin/worldserver
+
+# ===== 不上传：含真实密码的文件（仓库公开，防泄露）=====
+/server/acore-docker/.env
+/server/my.ini
+/server/acore/run/etc/authserver.conf
+/server/acore/run/etc/worldserver.conf
+/server/acore/run/etc/dbimport.conf
+/server/acore/setup-db.sh
+/server/create-gm.sh
+/server/debug-world.sh
+/server/make-account.py
+/server/restart-fix.sh
+/server/restart-world-ra.sh
+/server/start-servers.sh
+/server/verify-auth.sh
+/server/start-all.bat
+/start-wow.bat
+/一键开服.bat
+/README.txt
+/开始游戏说明.txt

@@ -1,0 +1,9 @@
+ Image acore/ac-wotlk-client-data:master Pulling 
+ Image mysql:8.0 Pulling 
+ Image phpmyadmin Pulling 
+ Image acore/ac-wotlk-db-import:master Pulling 
+ Image acore/ac-wotlk-authserver:master Pulling 
+ Image acore/eluna-ts:master Pulling 
+ Image acore/ac-wotlk-worldserver:master Pulling 
+ Image acore/eluna-ts:master Pulled 
+unexpected EOF

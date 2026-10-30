@@ -1,0 +1,50 @@
+AzerothCore rev. 497cd60dcf9c+ 2026-07-10 21:28:55 +0200 (master branch) (Unix, RelWithDebInfo, Static) (dbimport)
+<Ctrl-C> to stop.
+
+   █████╗ ███████╗███████╗██████╗  ██████╗ ████████╗██╗  ██╗
+  ██╔══██╗╚══███╔╝██╔════╝██╔══██╗██╔═══██╗╚══██╔══╝██║  ██║
+  ███████║  ███╔╝ █████╗  ██████╔╝██║   ██║   ██║   ███████║
+  ██╔══██║ ███╔╝  ██╔══╝  ██╔══██╗██║   ██║   ██║   ██╔══██║
+  ██║  ██║███████╗███████╗██║  ██║╚██████╔╝   ██║   ██║  ██║
+  ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝
+                                 ██████╗ ██████╗ ██████╗ ███████╗
+                                ██╔════╝██╔═══██╗██╔══██╗██╔════╝
+                                ██║     ██║   ██║██████╔╝█████╗
+                                ██║     ██║   ██║██╔══██╗██╔══╝
+                                ╚██████╗╚██████╔╝██║  ██║███████╗
+                                 ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
+
+     AzerothCore 3.3.5a  -  www.azerothcore.org
+
+> Using configuration file:       /mnt/e/wow/server/acore/run/etc/dbimport.conf
+> Using SSL version:              OpenSSL 3.0.13 30 Jan 2024 (library: OpenSSL 3.5.5 27 Jan 2026)
+> Using Boost version:            1.83.0
+ 
+Loading modules: all
+Opening DatabasePool 'acore_auth'. Asynchronous connections: 1, synchronous connections: 1.
+MySQL client library: 8.0.46
+MySQL server ver: 8.4.9 
+Connected to MySQL database at 172.30.208.1
+MySQL client library: 8.0.46
+MySQL server ver: 8.4.9 
+Connected to MySQL database at 172.30.208.1
+DatabasePool 'acore_auth' opened successfully. 2 total connections running.
+ 
+Opening DatabasePool 'acore_characters'. Asynchronous connections: 1, synchronous connections: 1.
+MySQL client library: 8.0.46
+MySQL server ver: 8.4.9 
+Connected to MySQL database at 172.30.208.1
+MySQL client library: 8.0.46
+MySQL server ver: 8.4.9 
+Connected to MySQL database at 172.30.208.1
+DatabasePool 'acore_characters' opened successfully. 2 total connections running.
+ 
+Opening DatabasePool 'acore_world'. Asynchronous connections: 1, synchronous connections: 1.
+MySQL client library: 8.0.46
+MySQL server ver: 8.4.9 
+Connected to MySQL database at 172.30.208.1
+MySQL client library: 8.0.46
+MySQL server ver: 8.4.9 
+Connected to MySQL database at 172.30.208.1
+DatabasePool 'acore_world' opened successfully. 2 total connections running.
+ 

@@ -1,0 +1,65 @@
+Attaching to ac-db-import-1
+ac-db-import-1  | '/azerothcore/env/ref/etc/authserver.conf.dist' -> '/azerothcore/env/dist/etc/authserver.conf.dist'
+ac-db-import-1  | '/azerothcore/env/ref/etc/dbimport.conf.dist' -> '/azerothcore/env/dist/etc/dbimport.conf.dist'
+ac-db-import-1  | '/azerothcore/env/ref/etc/modules' -> '/azerothcore/env/dist/etc/modules'
+ac-db-import-1  | '/azerothcore/env/ref/etc/modules/mod_ale.conf.dist' -> '/azerothcore/env/dist/etc/modules/mod_ale.conf.dist'
+ac-db-import-1  | '/azerothcore/env/ref/etc/worldserver.conf.dist' -> '/azerothcore/env/dist/etc/worldserver.conf.dist'
+ac-db-import-1  | '/azerothcore/env/dist/etc/dbimport.conf.dist' -> '/azerothcore/env/dist/etc/dbimport.conf'
+ac-db-import-1  | Starting dbimport...
+ac-db-import-1  | [36mAzerothCore rev. 497cd60dcf9c+ 2026-07-10 21:28:55 +0200 (master branch) (Unix, RelWithDebInfo, Static) (dbimport)
+ac-db-import-1  | [0m[36m<Ctrl-C> to stop.
+ac-db-import-1  | 
+ac-db-import-1  | [0m[36m   █████╗ ███████╗███████╗██████╗  ██████╗ ████████╗██╗  ██╗
+ac-db-import-1  | [0m[36m  ██╔══██╗╚══███╔╝██╔════╝██╔══██╗██╔═══██╗╚══██╔══╝██║  ██║
+ac-db-import-1  | [0m[36m  ███████║  ███╔╝ █████╗  ██████╔╝██║   ██║   ██║   ███████║
+ac-db-import-1  | [0m[36m  ██╔══██║ ███╔╝  ██╔══╝  ██╔══██╗██║   ██║   ██║   ██╔══██║
+ac-db-import-1  | [0m[36m  ██║  ██║███████╗███████╗██║  ██║╚██████╔╝   ██║   ██║  ██║
+ac-db-import-1  | [0m[36m  ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝
+ac-db-import-1  | [0m[36m                                 ██████╗ ██████╗ ██████╗ ███████╗
+ac-db-import-1  | [0m[36m                                ██╔════╝██╔═══██╗██╔══██╗██╔════╝
+ac-db-import-1  | [0m[36m                                ██║     ██║   ██║██████╔╝█████╗
+ac-db-import-1  | [0m[36m                                ██║     ██║   ██║██╔══██╗██╔══╝
+ac-db-import-1  | [0m[36m                                ╚██████╗╚██████╔╝██║  ██║███████╗
+ac-db-import-1  | [0m[36m                                 ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
+ac-db-import-1  | 
+ac-db-import-1  | [0m[36m     AzerothCore 3.3.5a  -  www.azerothcore.org
+ac-db-import-1  | 
+ac-db-import-1  | [0m[36m> Using configuration file:       /azerothcore/env/dist/etc/dbimport.conf
+ac-db-import-1  | [0m[36m> Using SSL version:              OpenSSL 3.0.13 30 Jan 2024 (library: OpenSSL 3.0.13 30 Jan 2024)
+ac-db-import-1  | [0m[36m> Using Boost version:            1.83.0
+ac-db-import-1  | [0m[36m 
+ac-db-import-1  | [0m[36mConfiguration field WorldDatabaseInfo was overridden with environment variable.
+ac-db-import-1  | [0m[36mConfiguration field CharacterDatabaseInfo was overridden with environment variable.
+ac-db-import-1  | [0m[36mConfiguration field LoginDatabaseInfo was overridden with environment variable.
+ac-db-import-1  | [0m[36mConfiguration field LogsDir was overridden with environment variable.
+ac-db-import-1  | [0m[36mLoading modules: all
+ac-db-import-1  | [0m[36mOpening DatabasePool 'acore_auth'. Asynchronous connections: 1, synchronous connections: 1.
+ac-db-import-1  | [0m[36mMySQL client library: 8.0.46
+ac-db-import-1  | [0m[36mMySQL server ver: 8.0.46 
+ac-db-import-1  | [0m[36mConnected to MySQL database at ac-database
+ac-db-import-1  | [0m[36mMySQL client library: 8.0.46
+ac-db-import-1  | [0m[36mMySQL server ver: 8.0.46 
+ac-db-import-1  | [0m[36mConnected to MySQL database at ac-database
+ac-db-import-1  | [0m[36mDatabasePool 'acore_auth' opened successfully. 2 total connections running.
+ac-db-import-1  | [0m[36m 
+ac-db-import-1  | [0m[36mOpening DatabasePool 'acore_characters'. Asynchronous connections: 1, synchronous connections: 1.
+ac-db-import-1  | [0m[36mMySQL client library: 8.0.46
+ac-db-import-1  | [0m[36mMySQL server ver: 8.0.46 
+ac-db-import-1  | [0m[36mConnected to MySQL database at ac-database
+ac-db-import-1  | [0m[36mMySQL client library: 8.0.46
+ac-db-import-1  | [0m[36mMySQL server ver: 8.0.46 
+ac-db-import-1  | [0m[36mConnected to MySQL database at ac-database
+ac-db-import-1  | [0m[36mDatabasePool 'acore_characters' opened successfully. 2 total connections running.
+ac-db-import-1  | [0m[36m 
+ac-db-import-1  | [0m[36mOpening DatabasePool 'acore_world'. Asynchronous connections: 1, synchronous connections: 1.
+ac-db-import-1  | [0m[36mMySQL client library: 8.0.46
+ac-db-import-1  | [0m[36mMySQL server ver: 8.0.46 
+ac-db-import-1  | [0m[36mConnected to MySQL database at ac-database
+ac-db-import-1  | [0m[36mMySQL client library: 8.0.46
+ac-db-import-1  | [0m[36mMySQL server ver: 8.0.46 
+ac-db-import-1  | [0m[36mConnected to MySQL database at ac-database
+ac-db-import-1  | [0m[36mDatabasePool 'acore_world' opened successfully. 2 total connections running.
+ac-db-import-1  | [0m[36m 
+ac-db-import-1  | [0m[36mDatabase World is empty, auto populating it...
+ac-db-import-1  | [0m[36m>> Applying 'achievement_category_dbc.sql'...
+ac-db-import-1  | [0m[36m>> Applying 

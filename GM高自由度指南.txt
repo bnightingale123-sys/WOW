@@ -1,0 +1,208 @@
+========================================
+  3.3.5a 单机 · 高自由度 GM 指南
+========================================
+
+目标：你是服主 + 满权 GM，想刷就刷、想改就改。
+
+【选型建议 —— 买/下 一键端时认准这些】
+  优先选（自由度高）:
+    · 标明 AzerothCore / TrinityCore / TC 的 3.3.5 端
+    · 带「完整命令表 / GM工具 / 数据库」的完整包
+    · 自带 Navicat / HeidiSQL / 网页后台 的更佳
+    · 支持修改经验倍率、掉落倍率、金币倍率
+
+  尽量避开:
+    · 商业加密壳、强校验、不能改配置的「黑盒端」
+    · 只能网页点按钮、不能进控制台的阉割端
+    · 版本不是 3.3.5a 的（你客户端是 12340）
+
+  搜索关键词可加:
+    「3.3.5a 一键端 AzerothCore」
+    「3.3.5 TrinityCore 单机 GM」
+    「3.3.5 可改倍率 一键端」
+
+----------------------------------------
+一、账号提权（进游戏前必须做）
+----------------------------------------
+在 登录服/世界服 控制台输入（不同端措辞略有差别）:
+
+  account create 你的账号 你的密码
+  account set gmlevel 你的账号 3 -1
+
+说明:
+  · gmlevel 3 = 最高权限（开发者级）
+  · -1 表示所有服务器都生效
+
+有的一键端用:
+  account set gmlevel 账号 3
+  或网页后台勾选 Administrator / GM
+
+----------------------------------------
+二、进游戏后立刻打开 GM 模式
+----------------------------------------
+聊天框输入:
+
+  .gm on          开启 GM 模式（隐身、飞、无视限制等）
+  .gm off         关闭
+  .gm chat on     GM 聊天标记
+  .gm visible off 对玩家隐身（单机无所谓）
+
+----------------------------------------
+三、高自由度常用命令（核心）
+----------------------------------------
+
+【角色成长 —— 秒变满级大佬】
+  .levelup 80                 升到 80（或 .level 80 视端而定）
+  .levelup 20                 升 20 级
+  .modify money 999999999     加金币（铜为单位，约 99999 金）
+  .modify honor 75000         荣誉
+  .modify arena 5000          竞技场点
+  .maxskill                   专业技能拉满（部分端）
+  .learn all_recipes          学全部配方（部分端）
+  .learn all_myclass          学本职业全部法术
+  .learn all_mycrafts         学本专业相关
+  .learn all_default          学默认技能
+  .learn 技能ID               学指定法术
+
+【装备物品 —— 想要什么出什么】
+  .additem 物品ID 数量
+  .additem 49623 1            例: 影之哀伤（ID 因端库可能不同）
+  .additem set 套装ID         部分端支持整套
+  .damage 0                   修理（或找 NPC）
+
+  查物品 ID 方法:
+    · 游戏内 .lookup item 暗影之哀伤
+    · 或 .lookup item 暗影
+    · 网页: wowhead.com 选 Wrath 版本查
+    · 一键端若带「物品查询工具」直接用
+
+【传送 —— 全地图自由】
+  .tele 暴风城
+  .tele 奥格瑞玛
+  .tele 达拉然
+  .tele 冰冠堡垒
+  .tele 纳克萨玛斯
+  .gps                        看当前坐标
+  .go xyz X Y Z 地图ID        精确坐标传送
+  .appear 角色名              传送到某人（多人时）
+  .summon 角色名              拉人过来
+
+  查传送点: .lookup tele 冰冠
+
+【刷怪 / 副本 —— 自己当导演】
+  .npc add 生物ID             在当前位置刷一只
+  .npc delete                 选中后删怪
+  .npc info                   选中查看信息
+  .respawn                    附近重生
+  .instance unbind all        重置所有副本 CD
+  .die                        选中目标秒杀
+  .damage 999999              对目标造成伤害
+  .revive                     复活自己
+  .combatstop                 脱战
+
+  查 NPC: .lookup creature 阿尔萨斯
+         .lookup creature 巫妖王
+
+【复制 / 形态 / 娱乐】
+  .morph 模型ID               变身
+  .demorph                    取消变身
+  .modify scale 2             体型变大
+  .modify speed 5             移速
+  .modify swim 5              游泳速度
+  .modify fly 5               飞行速度（需 .gm fly on）
+  .gm fly on                  开启飞行
+  .aura 光环ID                上 buff
+  .unaura all                 清光环
+
+【服务器控制（单机很爽）】
+  .server info                看服状态
+  .save                       强制存档
+  .reload all                 热更部分脚本（部分端）
+  .announce 公告文字          全服公告
+
+----------------------------------------
+四、把「倍率」拉满（配置文件自由度）
+----------------------------------------
+一键端解压后，在 server 目录里找类似:
+
+  worldserver.conf
+  或 configs\worldserver.conf
+  或 世界服配置.ini
+
+用记事本打开，搜这些项（名称因端略有不同）:
+
+  Rate.XP.Kill          = 10     # 杀怪经验 10 倍
+  Rate.XP.Quest         = 10     # 任务经验 10 倍
+  Rate.XP.Explore       = 5
+  Rate.Drop.Item.Poor   = 5      # 白装掉落
+  Rate.Drop.Item.Normal = 5
+  Rate.Drop.Item.Uncommon = 5
+  Rate.Drop.Item.Rare   = 3
+  Rate.Drop.Item.Epic   = 2
+  Rate.Drop.Item.Legendary = 1
+  Rate.Drop.Money       = 10     # 掉钱
+  Rate.Reputation.Gain  = 5      # 声望
+  Rest.InGame           = 1
+  GM.StartLevel         = 80     # 新建角色直接 80（部分端）
+  GM.AllowInvite        = 1
+  GM.LowerSecurity      = 0
+
+改完后 重启世界服 生效。
+
+想「纯沙盒」建议起步:
+  经验 10～20 倍、金币 10 倍、掉落 3～5 倍
+  需要史诗毕业再开更高，避免太无乐趣可自己调。
+
+----------------------------------------
+五、数据库级自由（进阶，真正「改世界」）
+----------------------------------------
+装好后若有 MySQL + 图形工具（HeidiSQL / Navicat）:
+
+  常见库名: acore_world / acore_auth / acore_characters
+           或  trinity / characters / realmd
+
+  能改的事:
+    · creature_loot_template     改 BOSS 掉落
+    · item_template              改装备属性
+    · quest_template             改任务奖励
+    · playercreateinfo*          新建角色自带装备
+    · command 表                 看全部 GM 命令权限
+
+  图形化神器（可选，高自由度神器）:
+    · Keira3  —— 网页/桌面改 NPC、掉落、任务（AzerothCore 常用）
+    · 一键端自带的「GM 工具箱 / 物品编辑器」
+
+----------------------------------------
+六、推荐游玩流程（单机沙盒）
+----------------------------------------
+1. 开服 → 建号 → 控制台提权 gmlevel 3
+2. 进游戏 .gm on
+3. .levelup 到 80
+4. .modify money 999999999
+5. .learn all_myclass
+6. .tele 达拉然  当主城
+7. .lookup item / .additem 组自己的毕业装
+8. .instance unbind all  无限刷本
+9. 想练级就降低倍率，想沙盒就拉满
+
+----------------------------------------
+七、和你客户端的对应关系
+----------------------------------------
+  客户端: E:\wow\World of Warcraft
+  版本:   3.3.5a (12340) 国服
+  连接:   realmlist = 127.0.0.1  （已改好）
+  服务端: 解压到 E:\wow\server\
+
+----------------------------------------
+八、你下好一键端之后跟我说
+----------------------------------------
+我会帮你:
+  1. 检查是不是 AC/TC 类可改端
+  2. 直接改 worldserver.conf 拉高倍率
+  3. 写「一键开服.bat」
+  4. 确认 gmlevel 3 命令可用
+  5. 如有需要，整理一份你这个端的实际命令差异
+
+记住一句话:
+  高自由度 = 满权 GM 命令 + 可改 conf 倍率 + 能进数据库
+  选一键端时认准 AzerothCore / TrinityCore 系，不要黑盒加密端。

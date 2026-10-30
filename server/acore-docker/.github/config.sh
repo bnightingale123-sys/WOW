@@ -1,0 +1,5 @@
+CDEBUG=OFF
+CTYPE=Release
+CAPPS_BUILD=none
+CTOOLS_BUILD=db-only
+

@@ -1,0 +1,16 @@
+ERROR 1091 (42000) at line 4: Can't DROP 'posO'; check that column/key exists
+ERROR 1060 (42S21) at line 3: Duplicate column name 'DeleteDate'
+ERROR 1054 (42S22) at line 17: Unknown column 'itemA' in 'field list'
+ERROR 1054 (42S22) at line 21: Unknown column 'itemH' in 'field list'
+ERROR 1091 (42000) at line 24: Can't DROP 'itemA'; check that column/key exists
+ERROR 1054 (42S22) at line 45: Unknown column 'reqLevel' in 'field list'
+ERROR 1054 (42S22) at line 49: Unknown column 'reqPlayTime' in 'field list'
+ERROR 1091 (42000) at line 52: Can't DROP 'reqLevel'; check that column/key exists
+ERROR 1826 (HY000) at line 61: Duplicate foreign key constraint name 'fk_mail_server_character'
+ERROR 1060 (42S21) at line 3: Duplicate column name 'petition_id'
+ERROR 1061 (42000) at line 7: Duplicate key name 'idx_petition_id'
+ERROR 1060 (42S21) at line 9: Duplicate column name 'petition_id'
+ERROR 1061 (42000) at line 13: Duplicate key name 'idx_petition_id_player'
+ERROR 1061 (42000) at line 3: Duplicate key name 'idx_latest_quest_for_character'
+ERROR 1060 (42S21) at line 3: Duplicate column name 'State'
+ERROR 1050 (42S01) at line 3: Table 'spam_reports' already exists

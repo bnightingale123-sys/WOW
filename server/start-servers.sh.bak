@@ -1,0 +1,79 @@
+#!/bin/bash
+export LD_LIBRARY_PATH=/opt/acore/lib
+HOSTIP=$(grep nameserver /etc/resolv.conf | awk '{print $2}')
+echo "HOSTIP=$HOSTIP"
+
+# Wait for Windows MySQL from WSL
+for i in $(seq 1 30); do
+  if timeout 1 bash -c "echo >/dev/tcp/$HOSTIP/3306" 2>/dev/null; then
+    echo "MySQL reachable"
+    break
+  fi
+  echo "wait mysql $i"
+  sleep 1
+done
+
+mkdir -p /azerothcore/env/dist/etc/modules /opt/acore/etc/modules /opt/acore/logs /opt/acore/temp
+echo "# empty" > /azerothcore/env/dist/etc/modules/mod_ale.conf
+echo "# empty" > /opt/acore/etc/modules/mod_ale.conf
+cp -f /mnt/e/wow/server/acore/run/etc/*.conf /opt/acore/etc/
+
+for f in /opt/acore/etc/authserver.conf /opt/acore/etc/worldserver.conf; do
+  sed -i "s/[0-9]\{1,3\}\(\.[0-9]\{1,3\}\)\{3\};3306;acore;acore/${HOSTIP};3306;acore;acore/g" "$f"
+  sed -i 's|^PidFile = ".*"|PidFile = ""|' "$f"
+  sed -i 's|^Updates.EnableDatabases = .*|Updates.EnableDatabases = 0|' "$f"
+done
+
+pkill -x authserver 2>/dev/null || true
+pkill -x worldserver 2>/dev/null || true
+sleep 2
+
+cd /opt/acore/bin
+chmod +x authserver worldserver 2>/dev/null
+: > /opt/acore/logs/authserver.out
+: > /opt/acore/logs/worldserver.out
+
+./authserver -c /opt/acore/etc/authserver.conf >> /opt/acore/logs/authserver.out 2>&1 &
+echo AUTH=$!
+sleep 2
+if ! pgrep -x authserver >/dev/null; then
+  echo AUTH_FAILED
+  cat /opt/acore/logs/authserver.out
+  exit 1
+fi
+
+./worldserver -c /opt/acore/etc/worldserver.conf >> /opt/acore/logs/worldserver.out 2>&1 &
+echo WORLD=$!
+
+for i in $(seq 1 120); do
+  sleep 5
+  # If MySQL died, abort early with message
+  if ! timeout 1 bash -c "echo >/dev/tcp/$HOSTIP/3306" 2>/dev/null; then
+    echo MYSQL_DIED_DURING_LOAD
+    tail -20 /opt/acore/logs/worldserver.out | sed 's/\x1b\[[0-9;]*m//g'
+    exit 1
+  fi
+  if ss -lntp 2>/dev/null | grep -q ':8085' && ss -lntp 2>/dev/null | grep -q ':3724'; then
+    echo READY_BOTH
+    ss -lntp | grep -E '3724|8085'
+    pgrep -a authserver
+    pgrep -a worldserver
+    exit 0
+  fi
+  if ! pgrep -x worldserver >/dev/null; then
+    echo WORLD_DEAD
+    tail -40 /opt/acore/logs/worldserver.out | sed 's/\x1b\[[0-9;]*m//g'
+    tail -15 /opt/acore/logs/Errors.log 2>/dev/null
+    exit 1
+  fi
+  if ! pgrep -x authserver >/dev/null; then
+    echo "auth restart"
+    ./authserver -c /opt/acore/etc/authserver.conf >> /opt/acore/logs/authserver.out 2>&1 &
+  fi
+  if [ $((i % 6)) -eq 0 ]; then
+    echo "loading $i ..."
+  fi
+done
+echo TIMEOUT
+tail -20 /opt/acore/logs/worldserver.out | sed 's/\x1b\[[0-9;]*m//g'
+exit 1
